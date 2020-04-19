@@ -1,0 +1,42 @@
+##
+## DO(!) EDIT THIS FILE
+##
+
+PATH syslinux/modules/bios
+UI syslinux/modules/bios/vesamenu.c32
+TIMEOUT 600
+
+MENU TITLE netboot menu
+
+LABEL boot
+	MENU LABEL Boot local HD
+	KERNEL syslinux/modules/bios/lua.c32
+	APPEND tools/localboot.lua/localboot.lua
+
+LABEL di
+	MENU LABEL Debian Installer (via di-netboot-assistant)
+	KERNEL syslinux/modules/bios/pxechn.c32
+	APPEND d-i/n-a/pxelinux.0
+
+LABEL gparted
+	MENU LABEL GParted Live
+	KERNEL gparted/vmlinuz
+	INITRD gparted/initrd.img
+	APPEND boot=live config components union=overlay username=user noswap noeject ip= vga=791 fetch=http://chii/gparted.squashfs
+
+LABEL hdt
+	MENU LABEL Hardware Detection Tool
+	KERNEL syslinux/modules/bios/hdt.c32
+	APPEND pciids=tools/pci.ids
+
+LABEL memtest
+	MENU LABEL MemTest86+ 5.01
+	LINUX tools/memtest86+-5.01.bin
+
+LABEL memtest86
+	MENU LABEL MemTest86 4.3.7
+	LINUX tools/memtest86-4.3.7.bin
+
+LABEL plp
+	MENU LABEL Plop Bootmanager 5.0.15
+	LINUX tools/plpbt-5.0.15.bin

@@ -1,0 +1,3 @@
+[submodule "tools/localboot.lua"]
+	path = tools/localboot.lua
+	url = https://github.com/IServ-GmbH/localboot.lua
