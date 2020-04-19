@@ -1,6 +1,17 @@
 # tftproot for PXE
 
 This is a simple setup for a PXE environment on a Debian 10 (buster) system.
+
+This repository uses a Git submodule to include `localboot.lua`, so you should
+probably use
+
+    git clone --recursive https://github.com/TobiX/pxe.git
+
+or update the submodules after the clone:
+
+    git submodule init
+    git submodule update
+
 Most tools are just symlinked into the matching Debian packages, so you should
 install at least
 
