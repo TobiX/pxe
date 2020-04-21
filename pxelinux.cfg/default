@@ -3,19 +3,19 @@
 ##
 
 PATH syslinux/modules/bios
-UI syslinux/modules/bios/vesamenu.c32
+UI vesamenu.c32
 TIMEOUT 600
 
 MENU TITLE netboot menu
 
 LABEL boot
 	MENU LABEL Boot local HD
-	KERNEL syslinux/modules/bios/lua.c32
+	KERNEL lua.c32
 	APPEND tools/localboot.lua/localboot.lua
 
 LABEL di
 	MENU LABEL Debian Installer (via di-netboot-assistant)
-	KERNEL syslinux/modules/bios/pxechn.c32
+	KERNEL pxechn.c32
 	APPEND d-i/n-a/pxelinux.0
 
 LABEL gparted
@@ -26,7 +26,7 @@ LABEL gparted
 
 LABEL hdt
 	MENU LABEL Hardware Detection Tool
-	KERNEL syslinux/modules/bios/hdt.c32
+	KERNEL hdt.c32
 	APPEND pciids=tools/pci.ids
 
 LABEL memtest
