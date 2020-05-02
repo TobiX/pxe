@@ -38,7 +38,6 @@ This is probably the minimal setup to use this setup with dnsmasq (assuming
 this isn't the "main" DHCP server):
 
     dhcp-range=192.168.1.0,proxy
-    dhcp-boot=pxelinux.0,192.168.1.25,192.168.1.0
     pxe-service=x86PC,"Automatic Network boot",pxelinux
     enable-tftp
     tftp-root=/srv/tftp
