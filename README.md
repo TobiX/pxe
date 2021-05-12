@@ -15,7 +15,16 @@ or update the submodules after the clone:
 Most tools are just symlinked into the matching Debian packages, so you should
 install at least
 
-    syslinux-common pxelinux
+    syslinux-common syslinux-efi pxelinux
+
+## MultiArch support
+
+Since 2021-05, this repository uses a bunch of [symlinks] to support BIOS and
+EFI64 boot from the same config. While this seems to work for some options, the
+EFI code path is much less tested then the BIOS code path. (there are probably
+some options which flat-out don't work in EFI mode)
+
+[symlinks]: https://wiki.syslinux.org/wiki/index.php?title=PXELINUX-Multi-Arch#Distinct_directory_symlink_path
 
 ## Debian Installer
 
@@ -30,7 +39,7 @@ to your liking and run
 
 Get the GParted Live ZIP file and put the `vmlinuz` and `initrd.img` into the
 `gparted` directory. Put the `filesystem.squashfs` on a webserver and adjust
-the URL in `pxelinux.cfg/default`.
+the URL in `default.cfg`.
 
 ## Using with dnsmasq
 
@@ -38,7 +47,8 @@ This is probably the minimal setup to use this setup with dnsmasq (assuming
 this isn't the "main" DHCP server):
 
     dhcp-range=192.168.1.0,proxy
-    pxe-service=x86PC,"Automatic Network boot",pxelinux
+    pxe-service=x86PC,"pxelinux BIOS",bios/pxelinux
+    pxe-service=x86-64_EFI,"syslinux EFI64",efi64/syslinux.efi
     enable-tftp
     tftp-root=/srv/tftp
 
