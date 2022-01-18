@@ -1,0 +1,4 @@
+LABEL di
+	MENU LABEL Debian Installer (via di-netboot-assistant)
+	KERNEL pxechn.c32
+	APPEND d-i/n-a/pxelinux.0

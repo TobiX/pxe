@@ -1,0 +1,3 @@
+LABEL di
+	MENU LABEL Debian Installer (via di-netboot-assistant)
+	KERNEL d-i/n-a/bootnetx64.efi
