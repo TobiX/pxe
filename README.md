@@ -35,11 +35,12 @@ to your liking and run
 
 (or similar).
 
-## GParted Live
+## grml
 
-Get the GParted Live ZIP file and put the `vmlinuz` and `initrd.img` into the
-`gparted` directory. Put the `filesystem.squashfs` on a webserver and adjust
-the URL in `default.cfg`.
+Grab the files `vmlinuz` and `initrd.img` from the grml ISO (they are somewhere
+in `boot/grml64*/`) and put them into the `grml` directory. Put the
+GRML SquashFS (In `live/grml64*/*.squashfs` on the ISO) on a webserver and
+adjust the URL in `default.cfg`.
 
 ## Using with dnsmasq
 
