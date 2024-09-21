@@ -41,7 +41,7 @@ to your liking and run
 Grab the files `vmlinuz` and `initrd.img` from the grml ISO (they are somewhere
 in `boot/grml64*/`) and put them into the `grml` directory. Put the
 GRML SquashFS (In `live/grml64*/*.squashfs` on the ISO) on a webserver and
-adjust the URL in `default.cfg`.
+adjust the URL in `common.cfg`.
 
 ## Using with dnsmasq
 

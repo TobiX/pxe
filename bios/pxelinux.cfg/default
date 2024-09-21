@@ -1,1 +1,5 @@
-../../default.cfg
+UI vesamenu.c32
+
+MENU TITLE netboot menu (BIOS)
+
+INCLUDE common.cfg
