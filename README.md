@@ -1,6 +1,7 @@
 # tftproot for PXE
 
-This is a simple setup for a PXE environment on a Debian 10 (buster) system.
+This is a simple setup for a PXE environment on a Debian 10+ (currently running
+and tested on Debian 12) system.
 
 This repository uses a Git submodule to include `localboot.lua`, so you should
 probably use
@@ -56,3 +57,14 @@ this isn't the "main" DHCP server):
     # Disable DNS (if you are using a different server for DNS)
     port=0
 
+## Testing with qemu
+
+You can test some aspects of this setup using qemu. For BIOS boot use:
+
+    qemu-system-x86_64 -accel kvm -cpu host -netdev user,id=net0,tftp=$PWD,bootfile=bios/pxelinux.0 -device virtio-net-pci,netdev=net0 -boot n
+
+For UEFI boot use:
+
+    qemu-system-x86_64 -accel kvm -cpu host -netdev user,id=net0,tftp=$PWD,bootfile=efi64/syslinux.efi -device virtio-net-pci,netdev=net0 -boot n -drive file=/usr/share/OVMF/OVMF_CODE_4M.fd,if=pflash,format=raw,unit=0,readonly=on
+
+The TianoCore files are in the `ovmf` Debian package
