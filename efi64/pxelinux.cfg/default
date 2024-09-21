@@ -3,3 +3,11 @@ UI vesamenu.c32
 MENU TITLE netboot menu (EFI64)
 
 INCLUDE common.cfg
+
+LABEL memtest64
+	MENU HIDE
+	KERNEL tools/memtest64-7.00.efi
+
+LABEL memtest32
+	MENU HIDE
+	KERNEL tools/memtest32-7.00.efi

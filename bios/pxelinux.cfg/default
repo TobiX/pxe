@@ -3,3 +3,11 @@ UI vesamenu.c32
 MENU TITLE netboot menu (BIOS)
 
 INCLUDE common.cfg
+
+LABEL memtest64
+	MENU HIDE
+	KERNEL tools/memtest64-7.00.bin
+
+LABEL memtest32
+	MENU HIDE
+	KERNEL tools/memtest32-7.00.bin
